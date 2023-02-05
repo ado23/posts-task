@@ -6,10 +6,9 @@ class BaseApi {
     this.baseUrl = config.host;
   }
 
-  generateRequestHeaders = () => ({
-    method: "GET",
-    headers: { Authorization: config.key }
-  });
+  // generateRequestHeaders = () => ({
+  //   method: "GET"
+  // });
 
   generateQueryFilters = (filterObject) =>
     Object.keys(filterObject)
@@ -34,24 +33,19 @@ class BaseApi {
     return baseUrl;
   };
 
-  handleResponse = (response) => {
-    return response.json().then((data) => {
-      if (data.status !== "ok") {
-        const error = data && data.message;
-        return Promise.reject(error);
-      }
-
-      return data;
-    });
-  };
+  handleResponse = (response) => response.json().then((json) => json);
 
   getData = (filter) => {
     const fullUrl = this.generateFullUrl(filter);
-    const requestOptions = this.generateRequestHeaders();
+    // const requestOptions = this.generateRequestHeaders();
 
-    return fetch(fullUrl, requestOptions).then((response) =>
-      this.handleResponse(response)
-    );
+    // return fetch(fullUrl)
+    //   .then((response) => response.json())
+    //   .then((json) => json);
+
+    return fetch(fullUrl).then((response) => this.handleResponse(response));
+
+    // return fetch(fullUrl).then((response) => this.handleResponse(response));
   };
 }
 

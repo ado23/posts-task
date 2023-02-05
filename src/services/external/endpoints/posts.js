@@ -1,4 +1,4 @@
-import BaseApi from "services/api/BaseApi";
+import BaseApi from "services/external/BaseApi";
 
 class Posts extends BaseApi {
   constructor() {

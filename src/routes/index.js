@@ -1,6 +1,7 @@
 const ROUTE_PATHS = {
+  HOME: "/",
   POSTS: "/posts",
-  POST_DETAILS: "/post/:id",
+  POST_DETAILS: "/posts/:id",
   NOT_FOUND: "*"
 };
 
