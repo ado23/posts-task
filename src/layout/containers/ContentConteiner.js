@@ -1,9 +1,7 @@
-import styled from "styled-components";
-
-const StyledContainer = styled.div`
-  background: ${({ theme: { colors } }) => colors.appBackground};
-`;
-
-const Container = ({ children }) => <StyledContainer className="container pt-5"> {children} </StyledContainer>;
+const Container = ({ children }) => (
+  <div className="container pt-5 d-flex flex-column justify-content-center flex-grow-1">
+    {children}
+  </div>
+);
 
 export default Container;

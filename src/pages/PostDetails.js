@@ -1,15 +1,11 @@
 import MainAppContainer from "layout/containers/MainAppContainer";
 
-import Novi from "components/core/Post";
+import Details from "features/PostDetails/components/Details";
 
-const PostDetails = () => {
-  return (
-    <MainAppContainer>
-      <div className="py-3">
-        <Novi />
-      </div>
-    </MainAppContainer>
-  );
-};
+const PostDetails = () => (
+  <MainAppContainer>
+    <Details />
+  </MainAppContainer>
+);
 
 export default PostDetails;

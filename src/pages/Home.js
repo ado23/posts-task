@@ -1,28 +1,23 @@
-const HomePage = () => {
-  return (
-    <div class="d-flex h-100 text-center text-bg-dark">
-      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
-          <div>
-            <h3 class="float-md-start mb-0">Cover</h3>
-            <nav class="nav nav-masthead justify-content-center float-md-end">
-              <p>Features</p>
-              <p>Contact</p>
-            </nav>
-          </div>
-        </header>
+import MainAppContainer from "layout/containers/MainAppContainer";
+import images from "assets/images";
+import styled from "styled-components";
 
-        <div class="px-3">
-          <h1>Cover your page.</h1>
-          <p class="lead">
-            Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add
-            your own fullscreen background photo to make it your own.
-          </p>
-          <p class="lead">
-            <p>Learn more</p>
-          </p>
-        </div>
-      </div>
+const Novi = styled.div`
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(${images.news});
+  // filter: sepia(100%) saturate(200%) brightness(70%) hue-rotate(330deg);
+  filter: brightness(70%);
+`;
+
+const HomePage = () => {
+  console.log("asdads");
+  return (
+    <div>
+      <Novi />
+      <p>sdas</p>
     </div>
   );
 };

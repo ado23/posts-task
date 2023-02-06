@@ -1,10 +1,5 @@
-import styled from "styled-components";
-
-const AppContainer = styled.div`
-  background: ${({ theme: { colors } }) => colors.appBackground};
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
+const AppContainer = ({ children }) => (
+  <div className="d-flex flex-column justify-content-between vh-100"> {children} </div>
+);
 
 export default AppContainer;

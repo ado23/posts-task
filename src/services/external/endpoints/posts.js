@@ -5,6 +5,10 @@ class Posts extends BaseApi {
     super();
     this.type = "posts";
   }
+
+  getPosts = () => this.apiCall({ url: this.generateFullUrl(false) });
+  getPost = (postId) => this.apiCall({ url: this.generateFullUrl(`/${postId}`) });
+  getPostComments = (postId) => this.apiCall({ url: this.generateFullUrl(`/${postId}/comments`) });
 }
 
 const PostsApi = new Posts();
