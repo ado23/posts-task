@@ -1,25 +1,20 @@
-import Comment from "components/comment";
-import Text from "components/typography/Text";
+import PropTypes from "prop-types";
 
-import { Card, CommentContainer } from "./styled";
+import Text from "components/typography/Text";
+import RenderComments from "./RenderComments";
 
 const Comments = ({ data }) => (
-  <Card className="card border-info">
+  <div className="card border-info my-2">
     <div className="card-body d-flex flex-column">
       <Text text="Comments section" />
 
-      <CommentContainer className="px-0 overflow-auto ">
-        {data.map((comment) => (
-          <Comment
-            key={comment.id}
-            title={comment.name}
-            text={comment.body}
-            author={comment.email}
-          />
-        ))}
-      </CommentContainer>
+      {RenderComments(data)}
     </div>
-  </Card>
+  </div>
 );
+
+Comments.propTypes = {
+  data: PropTypes.array.isRequired
+};
 
 export default Comments;

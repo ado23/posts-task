@@ -1,15 +1,20 @@
-/**
- *
- * @param {*} param0
- * @returns
- */
+import PropTypes from "prop-types";
 
-const Button = ({ text, onClick, classes, ...rest }) => {
-  return (
-    <button type="button" className={`btn ${classes}`} onClick={onClick} {...rest}>
-      {text}
-    </button>
-  );
+const Button = ({ text, type, onClick, classes, ...rest }) => (
+  <button type={type} className={`btn ${classes}`} onClick={onClick} {...rest}>
+    {text}
+  </button>
+);
+
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  classes: PropTypes.string
+};
+
+Button.defaultProps = {
+  type: "button"
 };
 
 export default Button;

@@ -1,19 +1,19 @@
-import Text from "components/typography/Text";
-import Title from "components/typography/Title";
-import Author from "components/typography/Author";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 import Button from "components/core/button";
+import Comments from "components/comments";
+
+import Text from "components/typography/Text";
+import Title from "components/typography/Title";
+import SmallText from "components/typography/SmallText";
 
 import { ReactComponent as UserIcon } from "assets/icons/user.svg";
 
-import Comments from "components/comments";
-import { useNavigate } from "react-router-dom";
-
 const Post = ({ title, text, author, comments }) => {
   const navigate = useNavigate();
-  const goBack = () => {
-    navigate(-1);
-  };
+  const goBack = () => navigate(-1);
+
   return (
     <>
       <div className="card shadow bg-white rounded">
@@ -25,7 +25,7 @@ const Post = ({ title, text, author, comments }) => {
 
               <div>
                 <UserIcon className="mx-1" />
-                <Author name={author} />
+                <SmallText text={author} />
               </div>
             </div>
           </div>
@@ -44,6 +44,20 @@ const Post = ({ title, text, author, comments }) => {
       </div>
     </>
   );
+};
+
+Post.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  comments: PropTypes.array.isRequired
+};
+
+Post.defaultProps = {
+  title: "",
+  text: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  comments: PropTypes.array.isRequired
 };
 
 export default Post;

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useCallback, useContext, useMemo } from "react";
 
 import Post from "components/post";
@@ -33,5 +34,9 @@ function RenderPosts(posts) {
     </div>
   ));
 }
+
+RenderPosts.propTypes = {
+  posts: PropTypes.array.isRequired
+};
 
 export default RenderPosts;

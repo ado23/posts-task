@@ -1,5 +1,11 @@
-import Text from "components/typography/Author";
+import PropTypes from "prop-types";
 
-const ProjectName = ({ text }) => <Text name={text} />;
+import SmallText from "components/typography/SmallText";
+
+const ProjectName = ({ text }) => <SmallText text={text} />;
+
+ProjectName.propTypes = {
+  text: PropTypes.string.isRequired
+};
 
 export default ProjectName;

@@ -1,6 +1,9 @@
+import PropTypes from "prop-types";
+
+import Line from "components/line";
 import Text from "components/typography/Text";
 import Title from "components/typography/Title";
-import Author from "components/typography/Author";
+import SmallText from "components/typography/SmallText";
 
 import { ReactComponent as UserIcon } from "assets/icons/user.svg";
 
@@ -10,9 +13,15 @@ const Comment = ({ title, text, author }) => (
     <Text text={text} />
 
     <UserIcon className="mx-1" />
-    <Author name={author} />
-    <hr className="border-dark opacity-10" />
+    <SmallText text={author} />
+    <Line />
   </div>
 );
+
+Comment.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired
+};
 
 export default Comment;

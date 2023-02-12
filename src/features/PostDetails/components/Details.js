@@ -8,7 +8,7 @@ import getPost from "../api/getPostDetails";
 import getPostComments from "../api/getPostComments";
 
 const Details = () => {
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
 
   const { postID } = useParams();
@@ -24,6 +24,10 @@ const Details = () => {
     getPostComments(setComments, postID);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (Object.keys(post).length === 0) {
+    return <div>LOADING</div>;
+  }
 
   const { title, body, userId } = post;
 

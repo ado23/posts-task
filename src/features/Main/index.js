@@ -1,5 +1,7 @@
+import PropTypes from "prop-types";
 import { useEffect, useState, useMemo } from "react";
 
+/* API LAYER */
 import getUsers from "./api/getUsers";
 import getPosts from "./api/getPosts";
 import getComments from "./api/getComments";
@@ -27,17 +29,14 @@ const Main = ({ children }) => {
   );
 
   return (
-    <MainContext.Provider
-      value={{
-        posts,
-        users,
-        comments,
-        postsWithUsers
-      }}
-    >
+    <MainContext.Provider value={{ posts, users, comments, postsWithUsers }}>
       {children}
     </MainContext.Provider>
   );
+};
+
+Main.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired
 };
 
 export default Main;
