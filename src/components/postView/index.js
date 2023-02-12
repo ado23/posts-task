@@ -10,7 +10,9 @@ import SmallText from "components/typography/SmallText";
 
 import { ReactComponent as UserIcon } from "assets/icons/user.svg";
 
-const Post = ({ title, text, author, comments }) => {
+const Post = ({ title, text, author, comments, helloFromMessage }) => {
+  console.log(`${helloFromMessage}`, "components/postView/index");
+
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
@@ -18,28 +20,28 @@ const Post = ({ title, text, author, comments }) => {
     <>
       <div className="card shadow bg-white rounded">
         <div className="card-body d-flex flex-column justify-content-between">
-          <div className="card flex-grow-1" style={{ borderRadius: "6px 6px 0px 0px" }}>
+          <div className="card flex-grow-1">
             <div className="card-body d-flex flex-column justify-content-between">
-              <Title title={title} />
-              <Text text={text} />
+              <Title title={title} helloFromMessage={helloFromMessage} />
+              <Text text={text} helloFromMessage={helloFromMessage} />
 
               <div>
                 <UserIcon className="mx-1" />
-                <SmallText text={author} />
+                <SmallText text={author} helloFromMessage={helloFromMessage} />
               </div>
             </div>
           </div>
 
-          <Comments data={comments} />
+          <Comments data={comments} helloFromMessage={helloFromMessage} />
         </div>
       </div>
 
       <div className="my-3 d-flex justify-content-end">
         <Button
-          style={{ display: "flex" }}
-          classes="btn-sm btn-outline-secondary"
+          classes="btn-sm btn-outline-secondary d-flex"
           text="Go back"
           onClick={goBack}
+          helloFromMessage={helloFromMessage}
         />
       </div>
     </>

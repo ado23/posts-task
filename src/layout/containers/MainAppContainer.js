@@ -6,15 +6,19 @@ import Footer from "layout/footer";
 import Container from "layout/containers/ContentConteiner";
 import AppContainer from "layout/containers/AppContainer";
 
-const MainAppContainer = ({ children }) => (
-  <AppContainer>
-    <Navbar />
+const MainAppContainer = ({ children, helloFromMessage }) => {
+  console.log(`${helloFromMessage}`, "layout/containers/MainAppContainer");
 
-    <Container>{children}</Container>
+  return (
+    <AppContainer helloFromMessage={helloFromMessage}>
+      <Navbar helloFromMessage={helloFromMessage} />
 
-    <Footer />
-  </AppContainer>
-);
+      <Container helloFromMessage={helloFromMessage}>{children}</Container>
+
+      <Footer helloFromMessage={helloFromMessage} />
+    </AppContainer>
+  );
+};
 
 MainAppContainer.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired

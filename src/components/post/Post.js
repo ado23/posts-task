@@ -8,19 +8,26 @@ import Text from "components/typography/Text";
 import Title from "components/typography/Title";
 import SmallText from "components/typography/SmallText";
 
-const Post = ({ postId, title, text, subtext, action }) => {
+const Post = ({ postId, title, text, subtext, action, helloFromMessage }) => {
+  console.log(`${helloFromMessage}`, "components/post/Post");
+
   const navigate = useNavigate();
   const handleOnClick = useCallback(() => navigate(`/posts/${postId}`), [postId, navigate]);
 
   return (
     <div className="card flex-grow-1 border-info">
       <div className="card-body d-flex flex-column justify-content-between">
-        <Title title={title} />
-        <Text text={text} />
+        <Title title={title} helloFromMessage={helloFromMessage} />
+        <Text text={text} helloFromMessage={helloFromMessage} />
 
         <div className="d-flex justify-content-between align-items-center">
-          <SmallText text={subtext} />
-          <Button classes="btn-sm btn-outline-secondary" text={action} onClick={handleOnClick} />
+          <SmallText text={subtext} helloFromMessage={helloFromMessage} />
+          <Button
+            classes="btn-sm btn-outline-secondary"
+            text={action}
+            onClick={handleOnClick}
+            helloFromMessage={helloFromMessage}
+          />
         </div>
       </div>
     </div>

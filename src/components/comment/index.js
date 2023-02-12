@@ -7,16 +7,20 @@ import SmallText from "components/typography/SmallText";
 
 import { ReactComponent as UserIcon } from "assets/icons/user.svg";
 
-const Comment = ({ title, text, author }) => (
-  <div className="pb-3">
-    <Title title={title} />
-    <Text text={text} />
+const Comment = ({ title, text, author, helloFromMessage }) => {
+  console.log(`${helloFromMessage}`, "components/comment/index");
 
-    <UserIcon className="mx-1" />
-    <SmallText text={author} />
-    <Line />
-  </div>
-);
+  return (
+    <div className="pb-3">
+      <Title title={title} helloFromMessage={helloFromMessage} />
+      <Text text={text} helloFromMessage={helloFromMessage} />
+
+      <UserIcon className="mx-1" />
+      <SmallText text={author} helloFromMessage={helloFromMessage} />
+      <Line helloFromMessage={helloFromMessage} />
+    </div>
+  );
+};
 
 Comment.propTypes = {
   title: PropTypes.string.isRequired,

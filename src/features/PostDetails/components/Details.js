@@ -7,7 +7,9 @@ import Post from "components/postView";
 import getPost from "../api/getPostDetails";
 import getPostComments from "../api/getPostComments";
 
-const Details = () => {
+const Details = ({ helloFromMessage }) => {
+  console.log(`${helloFromMessage}`, "features/PostDetails/components/Details");
+
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
 
@@ -30,8 +32,17 @@ const Details = () => {
   }
 
   const { title, body, userId } = post;
+  const author = getAuthor(userId);
 
-  return <Post title={title} text={body} author={getAuthor(userId)} comments={comments} />;
+  return (
+    <Post
+      title={title}
+      text={body}
+      author={author}
+      comments={comments}
+      helloFromMessage={helloFromMessage}
+    />
+  );
 };
 
 export default Details;

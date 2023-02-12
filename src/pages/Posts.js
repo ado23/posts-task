@@ -7,7 +7,9 @@ import RenderPosts from "features/Posts/components/RenderPosts";
 
 import TrendingPosts from "components/trendingPosts";
 
-const PostsPage = () => {
+const PostsPage = ({ helloFromMessage }) => {
+  console.log(`${helloFromMessage}`, "pages/Posts");
+
   const { postsWithUsers } = useContext(MainContext);
   const [filtered, setFiltered] = useState(postsWithUsers);
 
@@ -26,7 +28,7 @@ const PostsPage = () => {
   return (
     <div className="row g-3">
       <div className="mt-5">
-        <TrendingPosts title="#trending posts" />
+        <TrendingPosts title="#trending posts" helloFromMessage={helloFromMessage} />
       </div>
 
       <div className="mt-5">
@@ -34,10 +36,11 @@ const PostsPage = () => {
           label="Search posts (username)"
           placeholder="Search posts"
           handleOnChange={handleOnChange}
+          helloFromMessage={helloFromMessage}
         />
       </div>
 
-      {RenderPosts(filtered)}
+      {RenderPosts(filtered, helloFromMessage)}
     </div>
   );
 };

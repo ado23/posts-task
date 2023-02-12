@@ -5,7 +5,9 @@ import Post from "components/post";
 import MainContext from "features/Main/MainContext";
 import NoResults from "components/noResults";
 
-function RenderPosts(posts) {
+function RenderPosts(posts, helloFromMessage) {
+  console.log(`${helloFromMessage}`, "features/Posts/components/RenderPosts");
+
   const { users, comments } = useContext(MainContext);
 
   const getAuthor = useCallback(
@@ -22,18 +24,11 @@ function RenderPosts(posts) {
     [posts, comments]
   );
 
-  if (postsWithComments.length === 0) return <NoResults />;
+  if (postsWithComments.length === 0) return <NoResults helloFromMessage={helloFromMessage} />;
 
   return postsWithComments.map(({ id, body, title, userId, comments }) => (
     <div key={id} className="col-md-4 py-3 d-flex align-items-stretch">
-      <Post
-        postId={id}
-        text={body}
-        title={title}
-        action="Read more"
-        comments={comments}
-        subtext={getAuthor(userId)}
-      />
+      {Post(id, body, title, "Read more", comments, getAuthor(userId), helloFromMessage)}
     </div>
   ));
 }

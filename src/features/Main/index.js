@@ -8,7 +8,9 @@ import getComments from "./api/getComments";
 
 import MainContext from "./MainContext";
 
-const Main = ({ children }) => {
+const Main = ({ children, helloFromMessage }) => {
+  console.log(`${helloFromMessage}`, "features/Main/index");
+
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
   const [comments, setComments] = useState([]);

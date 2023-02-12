@@ -5,11 +5,15 @@ import MainRoutes from "./Main";
 
 import ROUTE_PATHS from "./paths";
 
-const RoutesComponent = () => (
-  <Routes>
-    <Route path={ROUTE_PATHS["HOME"]} element={<Home />} />
-    <Route path="/*" element={<MainRoutes />} />
-  </Routes>
-);
+const RoutesComponent = ({ helloFromMessage }) => {
+  console.log(`${helloFromMessage}`, "routes/index");
+
+  return (
+    <Routes>
+      <Route path={ROUTE_PATHS["HOME"]} element={<Home helloFromMessage={helloFromMessage} />} />
+      <Route path="/*" element={<MainRoutes helloFromMessage={helloFromMessage} />} />
+    </Routes>
+  );
+};
 
 export default RoutesComponent;
