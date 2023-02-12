@@ -1,8 +1,15 @@
-const ROUTE_PATHS = {
-  HOME: "/",
-  POSTS: "/posts",
-  POST_DETAILS: "/posts/:postID",
-  NOT_FOUND: "*"
-};
+import { Routes, Route } from "react-router-dom";
 
-export default ROUTE_PATHS;
+import OtherRoutes from "./Home";
+import MainRoutes from "./Main";
+
+import ROUTE_PATHS from "./paths";
+
+const RoutesComponent = () => (
+  <Routes>
+    <Route path="/*" element={<MainRoutes />} />
+    <Route path={ROUTE_PATHS["HOME"]} element={<OtherRoutes />} />
+  </Routes>
+);
+
+export default RoutesComponent;

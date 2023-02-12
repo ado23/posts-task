@@ -1,11 +1,5 @@
-import MainAppContainer from "layout/containers/MainAppContainer";
-
 import Details from "features/PostDetails/components/Details";
 
-const PostDetails = () => (
-  <MainAppContainer>
-    <Details />
-  </MainAppContainer>
-);
+const PostDetailsPage = () => <Details />;
 
-export default PostDetails;
+export default PostDetailsPage;

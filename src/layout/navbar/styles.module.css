@@ -1,0 +1,14 @@
+.siteHeader {
+  background-color: rgba(0, 0, 0, 0.85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.siteHeader a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.15s ease-in-out;
+}
+.siteHeader a:hover {
+  color: #5bc0de;
+  text-decoration: none;
+}

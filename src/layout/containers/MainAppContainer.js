@@ -6,7 +6,9 @@ import AppContainer from "layout/containers/AppContainer";
 const MainAppContainer = ({ children }) => (
   <AppContainer>
     <Navbar />
+
     <Container>{children}</Container>
+
     <Footer />
   </AppContainer>
 );

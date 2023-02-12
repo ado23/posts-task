@@ -3,11 +3,11 @@ import { useCallback, useContext, useMemo } from "react";
 import Post from "components/post";
 import MainContext from "features/Main/MainContext";
 
-const RenderPosts = () => {
-  const { posts, users, comments } = useContext(MainContext);
+function RenderPosts(posts) {
+  const { users, comments } = useContext(MainContext);
 
   const getAuthor = useCallback(
-    (postsUserId) => users.find((user) => user.id === postsUserId).name,
+    (postsUserId) => users.find((user) => user.id === postsUserId)?.name,
     [users]
   );
 
@@ -32,6 +32,6 @@ const RenderPosts = () => {
       />
     </div>
   ));
-};
+}
 
 export default RenderPosts;

@@ -11,7 +11,7 @@ const Comment = ({ title, text, author }) => (
 
     <UserIcon className="mx-1" />
     <Author name={author} />
-    <hr class="border-dark opacity-10" />
+    <hr className="border-dark opacity-10" />
   </div>
 );
 

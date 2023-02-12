@@ -1,5 +1,10 @@
-const Search = () => (
-  <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+const Input = ({ placeholder, handleOnChange }) => (
+  <input
+    type="search"
+    className="form-control"
+    placeholder={placeholder}
+    onChange={(event) => handleOnChange(event.target.value)}
+  />
 );
 
-export default Search;
+export default Input;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 import getUsers from "./api/getUsers";
 import getPosts from "./api/getPosts";
@@ -17,14 +17,22 @@ const Main = ({ children }) => {
     getComments(setComments);
   }, []);
 
-  console.log("DIV");
+  const postsWithUsers = useMemo(
+    () =>
+      posts.map((post) => ({
+        ...post,
+        userName: users.find((user) => user.id === post.userId)?.name
+      })),
+    [posts, users]
+  );
 
   return (
     <MainContext.Provider
       value={{
         posts,
         users,
-        comments
+        comments,
+        postsWithUsers
       }}
     >
       {children}
