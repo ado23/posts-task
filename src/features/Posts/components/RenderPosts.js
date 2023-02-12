@@ -3,6 +3,7 @@ import { useCallback, useContext, useMemo } from "react";
 
 import Post from "components/post";
 import MainContext from "features/Main/MainContext";
+import NoResults from "components/noResults";
 
 function RenderPosts(posts) {
   const { users, comments } = useContext(MainContext);
@@ -20,6 +21,8 @@ function RenderPosts(posts) {
       })),
     [posts, comments]
   );
+
+  if (postsWithComments.length === 0) return <NoResults />;
 
   return postsWithComments.map(({ id, body, title, userId, comments }) => (
     <div key={id} className="col-md-4 py-3 d-flex align-items-stretch">
