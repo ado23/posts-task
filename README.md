@@ -1,18 +1,20 @@
 Project Title: 📛 
-#posts-task
+## posts-task
 
 About the Project: 📚 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 It lists all posts from JSONPlaceholder api. More info about the api can be found on https://jsonplaceholder.typicode.com/
 It has 4 routes:
 
-⚛️ Home - Landing page with short info
-⚛️ Posts - Page where all posts are shown and user can filter them by user's name
-⚛️ PostDetails - Detailed view of one post
-⚛️ NotFound - Page responsible for showing 404 error if some route is entered that does not exist
+1. Home - Landing page with short info
+2. Posts - Page where all posts are shown and user can filter them by user's name
+3. PostDetails - Detailed view of one post
+4. NotFound - Page responsible for showing 404 error if some route is entered that does not exist
 
 Technologies Used: ☕️ ⚛️
-React, Bootstrap, React-Router.
+1. React ⚛️
+2. Bootstrap, 
+3. React-Router
 
 Setup / Installation: 💻
 1. download or clone the repository
