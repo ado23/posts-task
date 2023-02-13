@@ -7,7 +7,7 @@ const SmallText = ({ text, className, helloFromMessage }) => {
 };
 
 SmallText.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   className: PropTypes.string
 };
 

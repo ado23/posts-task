@@ -33,8 +33,7 @@ const PostsPage = ({ helloFromMessage }) => {
 
       <div className="mt-5">
         <Search
-          label="Search posts (username)"
-          placeholder="Search posts"
+          placeholder="Search posts (by username)"
           handleOnChange={handleOnChange}
           helloFromMessage={helloFromMessage}
         />
